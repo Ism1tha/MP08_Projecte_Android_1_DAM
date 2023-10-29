@@ -1,12 +1,13 @@
 package es.ismasg.comptador
 
-import android.annotation.SuppressLint
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -22,9 +23,9 @@ class MainActivity : AppCompatActivity() {
     private var running = false
     private var disabled = false
 
-    private var startingTimer = object : CountDownTimer(5000, 1000) {
+    private var startingTimer = object : CountDownTimer(4000, 1000) {
         override fun onTick(p0: Long) {
-            val timeLeft = p0 / 1000
+            val timeLeft = (p0 / 1000) + 1
             textCenter.text = "Starting in $timeLeft"
         }
         override fun onFinish() {
@@ -48,6 +49,7 @@ class MainActivity : AppCompatActivity() {
             running = false
             disabled = true
             buttonCenter.text = "Tap me to start again!"
+            Toast.makeText(applicationContext, "Round finished!", Toast.LENGTH_LONG).show()
             disableTimer.start()
         }
     }
