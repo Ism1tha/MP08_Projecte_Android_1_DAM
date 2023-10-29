@@ -3,4 +3,7 @@
     <string name="_0">0</string>
     <string name="button">Button</string>
     <string name="_60_segons">60 segons</string>
+    <string name="score">Score</string>
+    <string name="time_left">Time Left</string>
+    <string name="record">Record</string>
 </resources>
