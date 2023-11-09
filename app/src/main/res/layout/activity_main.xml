@@ -55,7 +55,6 @@
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif"
         android:text="TextView"
-        android:textColor="#9C27B0"
         android:textSize="50sp"
         android:textStyle="bold"
         android:typeface="normal"

@@ -2,4 +2,27 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="red">#FFFF0000</color>
+    <color name="green">#FF00FF00</color>
+    <color name="blue">#FF0000FF</color>
+    <color name="yellow">#FFFFFF00</color>
+    <color name="cyan">#FF00FFFF</color>
+    <color name="magenta">#FFFF00FF</color>
+    <color name="silver">#FFC0C0C0</color>
+    <color name="gray">#FF808080</color>
+    <color name="maroon">#FF800000</color>
+    <color name="olive">#FF808000</color>
+    <color name="purple">#FF800080</color>
+    <color name="teal">#FF008080</color>
+    <color name="navy">#FF000080</color>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="red_700">#FFB00020</color>
+    <color name="my_dark_primary">#FF000000</color>
+    <color name="my_dark_primary_variant">#FF000000</color>
+    <color name="my_dark_on_primary">#FFFFFFFF</color>
+    <color name="my_dark_secondary">#FF018786</color>
 </resources>

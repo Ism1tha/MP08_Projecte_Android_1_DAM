@@ -61,7 +61,6 @@ class MainActivity : AppCompatActivity() {
         override fun onFinish() {
             disabled = false
         }
-
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
