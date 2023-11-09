@@ -1,12 +1,17 @@
 package es.ismasg.comptador
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import es.ismasg.comptador.BuildConfig
 
 
 class MainActivity : AppCompatActivity() {
@@ -101,4 +106,26 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        super.onCreateOptionsMenu(menu)
+        menuInflater.inflate(R.menu.menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        super.onOptionsItemSelected(item)
+        when(item.itemId){
+            R.id.menuAbout -> {
+                showInfo()
+            }
+        }
+        return true
+    }
+
+    private fun showInfo() {
+        val dialogTitle = getString(R.string.about_title) + " " + BuildConfig.VERSION_NAME
+        val dialogMessage = getString(R.string.about_message)
+        var builder = AlertDialog.Builder(this)
+        builder.setTitle(dialogTitle).setMessage(dialogMessage).create().show()
+    }
 }

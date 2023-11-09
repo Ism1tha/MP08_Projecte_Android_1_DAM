@@ -1,7 +1,11 @@
-<resources>
+<resources
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingTranslation" >>
     <string name="app_name">Comptador</string>
     <string name="button">Button</string>
     <string name="score">Score</string>
     <string name="time_left">Time Left</string>
     <string name="record">Record</string>
+    <string name="about_message">Creat per Ismael Semmar Galvez. Github: Ism1tha</string>
+    <string name="about_title">Time Fighter</string>
 </resources>
