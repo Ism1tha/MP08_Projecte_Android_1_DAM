@@ -1,6 +1,5 @@
 package es.ismasg.comptador
 
-import android.content.Intent
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.view.Menu
@@ -11,7 +10,6 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import es.ismasg.comptador.BuildConfig
 
 
 class MainActivity : AppCompatActivity() {
@@ -31,11 +29,11 @@ class MainActivity : AppCompatActivity() {
     private var startingTimer = object : CountDownTimer(4000, 1000) {
         override fun onTick(p0: Long) {
             val timeLeft = (p0 / 1000) + 1
-            textCenter.text = "Starting in $timeLeft"
+            textCenter.text = getString(R.string.starting_in, timeLeft)
         }
         override fun onFinish() {
             textCenter.visibility = View.INVISIBLE
-            buttonCenter.text = "Tap me!"
+            buttonCenter.text = getString(R.string.tap_me)
             buttonCenter.visibility = View.VISIBLE
             roundTimer.start()
         }
@@ -44,16 +42,16 @@ class MainActivity : AppCompatActivity() {
     private var roundTimer = object : CountDownTimer(roundTime.toLong() * 1000, 1000) {
         override fun onTick(p0: Long) {
             val timeLeft = p0 / 1000
-            textTemps.text = "$timeLeft seconds left"
+            textTemps.text = getString(R.string.time_left, timeLeft)
         }
         override fun onFinish() {
             if(score > recordScore) {
                 recordScore = score
-                textRecordScore.text = "Your record: $recordScore"
+                textRecordScore.text = getString(R.string.your_record, recordScore)
             }
             running = false
             disabled = true
-            buttonCenter.text = "Tap me to start again!"
+            buttonCenter.text = getString(R.string.start_again)
             Toast.makeText(applicationContext, "Round finished!", Toast.LENGTH_LONG).show()
             disableTimer.start()
         }
@@ -80,10 +78,10 @@ class MainActivity : AppCompatActivity() {
         textRecordScore = findViewById(R.id.textRecordScore)
         textCenter = findViewById(R.id.textCenter)
         buttonCenter = findViewById(R.id.buttonCenter)
-        textTemps.text = "$roundTime seconds left"
-        textScore.text = "Score: $score"
-        textRecordScore.text = "Your record: $recordScore"
-        buttonCenter.text = "Tap me to start!"
+        textTemps.text = getString(R.string.time_left, roundTime)
+        textScore.text = getString(R.string.score, score)
+        textRecordScore.text = getString(R.string.your_record, recordScore)
+        buttonCenter.text = getString(R.string.tap_me_start)
         buttonCenter.setOnClickListener {
             buttonTrigger()
         }
@@ -93,16 +91,17 @@ class MainActivity : AppCompatActivity() {
         if(!running && !disabled) {
             running = true
             score = 0
-            textTemps.text = "10 seconds left"
-            textScore.text = "Score: $score"
-            textCenter.text = "Starting in 5"
+            textTemps.text = getString(R.string.time_left, roundTime)
+            textScore.text = getString(R.string.score, score)
+            textCenter.text = getString(R.string.starting_in, 5)
             textCenter.visibility = View.VISIBLE
             buttonCenter.visibility = View.INVISIBLE
             startingTimer.start()
         }
         else if(running && !disabled){
             score += 1
-            textScore.text = "Score: $score"
+            textScore.text = getString(R.string.score, score)
+            buttonCenter.startAnimation(android.view.animation.AnimationUtils.loadAnimation(this, R.anim.fade))
         }
     }
 
@@ -125,7 +124,7 @@ class MainActivity : AppCompatActivity() {
     private fun showInfo() {
         val dialogTitle = getString(R.string.about_title) + " " + BuildConfig.VERSION_NAME
         val dialogMessage = getString(R.string.about_message)
-        var builder = AlertDialog.Builder(this)
+        val builder = AlertDialog.Builder(this)
         builder.setTitle(dialogTitle).setMessage(dialogMessage).create().show()
     }
 }
